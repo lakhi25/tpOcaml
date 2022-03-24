@@ -1,4 +1,4 @@
-%token NOMBRE PLUS MOINS FOIS GPAREN DPAREN EOL
+/*%token NOMBRE PLUS MOINS FOIS GPAREN DPAREN EOL
 %type <unit> main expression terme facteur
 %start main
 %%
@@ -19,3 +19,27 @@ facteur:
     | MOINS facteur {}
     | NOMBRE {}
 ;
+*/
+/*Exercice-2 Question 2 on ajoute les prioritaire des tokens */
+
+%token NOMBRE PLUS MOINS FOIS GPAREN DPAREN EOL
+
+%left PLUS MOINS
+%left FOIS
+%nonassoc UMOINS
+
+%type <unit> main expression
+%start main
+%%
+main:
+    expression EOL {}
+;
+expression:
+      expression PLUS expression {}
+    | expression MOINS expression {}
+    | expression FOIS expression {}
+    | GPAREN expression DPAREN {}
+    | MOINS expression %prec UMOINS {}
+    | NOMBRE {}
+;
+/*est ce que on garde juste expression ou il faut ajouter pour facterr ??*/
