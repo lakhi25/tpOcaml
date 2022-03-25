@@ -1,13 +1,8 @@
-<<<<<<< HEAD
-%token NOMBRE PLUS MOINS FOIS GPAREN DPAREN /*EOL*/PT_VIRG
-=======
-/*%token NOMBRE PLUS MOINS FOIS GPAREN DPAREN EOL
->>>>>>> master
+/*%token NOMBRE PLUS MOINS FOIS GPAREN DPAREN PT_VIRG
 %type <unit> main expression terme facteur
 %start main
 %%
 main:
-    /*expression EOL*/
     expression PT_VIRG {}
 ;
 expression:
@@ -27,7 +22,7 @@ facteur:
 */
 /*Exercice-2 Question 2 on ajoute les prioritaire des tokens */
 
-%token NOMBRE PLUS MOINS FOIS GPAREN DPAREN EOL
+%token NOMBRE PLUS MOINS FOIS GPAREN DPAREN PT_VIRG
 
 %left PLUS MOINS
 %left FOIS
@@ -37,7 +32,7 @@ facteur:
 %start main
 %%
 main:
-    expression EOL {}
+    expression PT_VIRG {}
 ;
 expression:
       expression PLUS expression {}
