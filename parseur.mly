@@ -43,4 +43,3 @@ expression:
     | MOINS expression %prec UMOINS {-$2}
     | NOMBRE {$1}
 ;
-/*est ce que on garde juste expression ou il faut ajouter pour facterr ??*/
